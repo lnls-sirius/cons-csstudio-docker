@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+  cs-studio:
+    network_mode: "host"
+    build: '.'
+    hostname: cs-stuio
+    environment:
+     - DISPLAY
+    container_name: cs-studio
+    working_dir: /root/.ess-cs-studio/CSS
+    volumes:
+     - "$HOME/.Xauthority:/root/.Xauthority:rw"
+    # Mount your workspace here "/root/.ess-cs-studio/CSS"
+     - "/home/rfq/workspace:/root/.ess-cs-studio/CSS"
