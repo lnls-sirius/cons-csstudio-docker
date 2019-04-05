@@ -3,12 +3,15 @@ services:
   cs-studio:
     network_mode: "host"
     build: '.'
+    image: lnlscon/cs-studio:v1.0
     hostname: cs-stuio
     environment:
      - DISPLAY
+     - EPICS_CA_AUTO_ADDR_LIST=YES
+    # - EPICS_CA_ADDR_LIST=10.0.6.35
     container_name: cs-studio
     working_dir: /root/.ess-cs-studio/CSS
     volumes:
      - "$HOME/.Xauthority:/root/.Xauthority:rw"
     # Mount your workspace here "/root/.ess-cs-studio/CSS"
-     - "/home/rfq/workspace:/root/.ess-cs-studio/CSS"
+    # - "/home/con-srv/dllrf-css-screens:/root/.ess-cs-studio/CSS"

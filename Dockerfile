@@ -39,9 +39,8 @@ RUN  dpkg -i ttf-mscorefonts-installer_3.6_all.deb
 WORKDIR /opt
 COPY cs-studio-ess.tar.gz .
 RUN tar -zxvf cs-studio-ess.tar.gz  &&\
-    rm cs-studio-ess.tar.gz          &&\
+    rm cs-studio-ess.tar.gz         &&\
     ln -s /opt/cs-studio/ESS\ CS-Studio /usr/bin/cs-studio
-
-
-
+RUN apt clean                       &&\
+    apt autoremove
 CMD /usr/bin/cs-studio
