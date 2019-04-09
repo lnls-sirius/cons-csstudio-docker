@@ -14,9 +14,13 @@ RUN apt-get install -y          \
     libreadline-gplv2-dev       
 
 RUN mkdir -p /opt/epics-R3.15.5
-WORKDIR /opt/epics-R3.15.5
 
-COPY base-3.15.5.tar.gz                 .
+wget -O /opt/epics-R3.15.5/base-3.15.5.tar.gz   \
+    https://epics.anl.gov/download/base/base-3.15.5.tar.gz
+wget -O /opt/cs-studio-ess.tar.gz               \
+    https://artifactory.esss.lu.se/artifactory/CS-Studio/production/4.6.1.18/cs-studio-ess-4.6.1.18-linux.gtk.x86_64.tar.gz
+
+WORKDIR /opt/epics-R3.15.5
 
 ENV PATH /opt/epics-R3.15.5/base/bin/linux-x86_64:$PATH
 ENV EPICS_BASE /opt/epics-R3.15.5/base
@@ -37,7 +41,6 @@ RUN  dpkg -i ttf-mscorefonts-installer_3.6_all.deb
 
 # CS-Studio
 WORKDIR /opt
-COPY cs-studio-ess.tar.gz .
 RUN tar -zxvf cs-studio-ess.tar.gz  &&\
     rm cs-studio-ess.tar.gz         &&\
     ln -s /opt/cs-studio/ESS\ CS-Studio /usr/bin/cs-studio
