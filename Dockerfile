@@ -15,9 +15,9 @@ RUN apt-get install -y          \
 
 RUN mkdir -p /opt/epics-R3.15.5
 
-wget -O /opt/epics-R3.15.5/base-3.15.5.tar.gz   \
+RUN wget -O /opt/epics-R3.15.5/base-3.15.5.tar.gz   \
     https://epics.anl.gov/download/base/base-3.15.5.tar.gz
-wget -O /opt/cs-studio-ess.tar.gz               \
+RUN wget -O /opt/cs-studio-ess.tar.gz               \
     https://artifactory.esss.lu.se/artifactory/CS-Studio/production/4.6.1.18/cs-studio-ess-4.6.1.18-linux.gtk.x86_64.tar.gz
 
 WORKDIR /opt/epics-R3.15.5
