@@ -1,0 +1,7 @@
+# Author: Cláudio Ferreira Carneiro
+# LNLS - Brazilian Synchrotron Light Source Laboratory
+FROM lnlscon/cs-studio:v1.0
+LABEL maintainer="Claudio Carneiro <claudio.carneiro@lnls.br>"
+RUN apt-get update
+RUN apt-get -y install python3 --fix-missing
+CMD /usr/bin/cs-studio
